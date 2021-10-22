@@ -1,9 +1,8 @@
 {
   "OwnerID":"810161653756198933", 
-  "Prefix":"!", 
-  "Token":"", 
-  "Status": "Vâlensa ❤ Wolyo",
-  "guildID":"895357104913809478", 
+  "Prefix":".", 
+  "Status": "Strange ❤ Wolyo",
+  "guildID":"901132237825781881", 
   "logChannelID":"895685168638099476", 
   "channelProtection":true,
   "roleProtection":true,
@@ -12,7 +11,7 @@
   "kickProtection":true,
   "serverProtection":true,
   "rightClickProtection":true, 
-  "whitelist":["810161653756198933"], 
-  "boosterRole":"895359536301473832", 
-  "jailRole":"895359548787937350" 
+  "whitelist":["810161653756198933","871118006267310171","875057959347044393"], 
+  "boosterRole":"900781657752207410", 
+  "jailRole":"900782661554020362" 
 }
