@@ -113,7 +113,7 @@ beta.on("guildUpdate", async (oldGuild, newGuild) => {
   if (newGuild.name !== oldGuild.name) newGuild.setName(oldGuild.name);
   if (newGuild.iconURL({dynamic: true, size: 2048}) !== oldGuild.iconURL({dynamic: true, size: 2048})) newGuild.setIcon(oldGuild.iconURL({dynamic: true, size: 2048}));
   let logKanali = beta.channels.cache.get(config.logChannelID);
-  if (logKanali) { logKanali.send(new MessageEmbed().setThumbnail(user.displayAvatarURL({dynamic:true})).setColor("BLUE").setTitle('Sunucu izinsiz güncellendi!').setDescription(`${entry.executor} adlı yetkili tarafından Sunucu izinsiz güncellendi! \nGüncelleyen yetkili sunucudan yasaklandı ve sunucu eski haline getirildi.`).setFooter(`Beta Koruma Sistemi`).setTimestamp())}});
+  if (logKanali) { logKanali.send(new MessageEmbed().setThumbnail(user.displayAvatarURL({dynamic:true})).setColor("BLUE").setTitle('Sunucu izinsiz güncellendi!').setDescription(`${entry.executor} adlı yetkili tarafından Sunucu izinsiz güncellendi! \nGüncelleyen yetkili sunucudan yasaklandı ve sunucu eski haline getirildi.`).setFooter(`wolyo was here`).setTimestamp())}});
 
 beta.on("guildMemberRemove", async member => {
   let entry = await member.guild.fetchAuditLogs({type: 'MEMBER_KICK'}).then(audit => audit.entries.first());
@@ -138,7 +138,7 @@ beta.on("guildMemberAdd", async member => {
   cezalandir(member.id, "ban");
   let user = beta.users.cache.get(entry.executor.id)
   let logKanali = beta.channels.cache.get(config.logChannelID);
-  if (logKanali) { logKanali.send(new MessageEmbed().setThumbnail(user.displayAvatarURL({dynamic:true})).setColor("BLUE").setTitle('Sunucuya izinsiz bir bot eklendi!').setDescription(`${member} adlı botu, ${entry.executor} adlı yetkili tarafından sunucuya izinsiz eklendi! \n\nEkleyen yetkili ve bot sunucudan yasaklandı.`).setFooter(`Beta Koruma Sistemi`).setTimestamp())}});
+  if (logKanali) { logKanali.send(new MessageEmbed().setThumbnail(user.displayAvatarURL({dynamic:true})).setColor("BLUE").setTitle('Sunucuya izinsiz bir bot eklendi!').setDescription(`${member} adlı botu, ${entry.executor} adlı yetkili tarafından sunucuya izinsiz eklendi! \n\nEkleyen yetkili ve bot sunucudan yasaklandı.`).setFooter(`wolyo was here`).setTimestamp())}});
 
 beta.on("guildMemberUpdate", async (oldMember, newMember) => {
   if (newMember.roles.cache.size > oldMember.roles.cache.size) {
@@ -150,4 +150,4 @@ beta.on("guildMemberUpdate", async (oldMember, newMember) => {
   let logKanali = beta.channels.cache.get(config.logChannelID);
   if (logKanali) { logKanali.send(new MessageEmbed().setThumbnail(user.displayAvatarURL({dynamic:true})).setColor("BLUE").setTitle('Sunucuda izinsiz yetki yükseltildi').setDescription(`${newMember} adlı üyeye ${entry.executor} isimli yetkili tarafından sunucuda izinsiz yetki verildi! \nYetki veren yetkili sunucudan yasaklandı ve verilen yetki geri alındı!`).setFooter(`wolyo was here`).setTimestamp())}}}});
 
-beta.login(config.Token).catch(() => console.log('Tokeni kontrol ediniz.'));
+beta.login(process.env.token).then(c => console.log(`${client.user.tag} olarak giriş yapıldı!`)).catch(err => console.error("Bota giriş yapılırken başarısız olundu!"));
